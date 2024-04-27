@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_coordinate_conversion",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_coordinate_conversion",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
