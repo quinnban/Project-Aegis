@@ -16,5 +16,9 @@
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
-  "ResourceOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"obj_grid_square","order":1,"path":"objects/obj_grid_square/obj_grid_square.yy",},
+    {"name":"s_grid_box","order":1,"path":"sprites/s_grid_box/s_grid_box.yy",},
+    {"name":"Sprite3","order":2,"path":"sprites/Sprite3/Sprite3.yy",},
+  ],
 }
