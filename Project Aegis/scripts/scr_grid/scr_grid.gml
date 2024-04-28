@@ -25,33 +25,26 @@ function draw_grid(){
 	}
 }
 
-function place_grid_objects(){
-var TILE_WIDTH = 32;
-var TILE_WIDTH_HALF = 16;
-
-	for(i =0; i < 2; i++ ;) {
-		var _offset = 0;
-		for(j =0; j < 3; j++ ;) {
-			_offset += 8;
-			var _x = ((j - i) * TILE_WIDTH_HALF);
-			var _y = ((j +i) * TILE_WIDTH_HALF);
-			instance_create_depth(_x+150,_y+150,j,obj_grid_square);
+function place_grid_objects(_offset_y,_offset_x,_tile_height,_tile_width){
+	for(i =0; i < 5; i++ ;) {
+		var _layer = 100 - (i*10);
+		for(j =0; j < 5; j++ ;) {
+			_layer -= 10 ;
+			// x= x*0.5w + y*-0.5w
+			// y = x*0.25h + y*0.25h
+			var _x = (j * (_tile_width*0.5)) + (i * - (_tile_width * 0.5));
+			var _y = (j * (_tile_height * 0.25)) +  (i * (_tile_height * 0.25));
+			var _obj_id = instance_create_depth(_x+_offset_x,_y+_offset_y,_layer,obj_grid_square);
+			ds_list_add(v_list_obj_tiles,_obj_id);
 		}
 	}
 }
 
-function place_grid_objects_1(){
-var TILE_WIDTH = 32;
-var TILE_WIDTH_HALF = 16;
-	for(i =0; i < 5; i++ ;) {
-		var _offset = 100 - (i*10);
-		for(j =0; j < 5; j++ ;) {
-			_offset -= 10 ;
-			var _x = (j * 16) + (i * - 16);
-			var _y = (j * 8) +  (i * 8);
-			instance_create_depth(_x+150,_y+150,_offset,obj_grid_square);
-		}
-	}
+function mouse_x_y_to_grid_x_y(_x,_y){
+	//stackoverflow matries math here only works for 32x32
+	var _tile_x = floor((1/512) * ((_x * 16) + (_y * 16) - (150 * 16)));
+	var _tile_y = floor((1/512) * ((_x * 16) + (_y * 16) + (150 * 16)));
+	return [_tile_x,_tile_y];
 }
 		
 
