@@ -10,8 +10,8 @@ var _tile_x = floor((_my + (_mx/2))/16);
 var _tile_y = floor((_my - (_mx/2))/16);
 
 
-if(_tile_x >= 0 && _tile_y >= 0 && _tile_y <=4 && _tile_x <=4){
-	v_tile_index = _tile_y * 5 + _tile_x; 
+if(_tile_x >= 0 && _tile_y >= 0 && _tile_y < v_size_y && _tile_x < v_size_x){
+	v_tile_index = _tile_y * v_size_x + _tile_x; 
 	draw_text(200,45,string("G x: {0}",_tile_x));
 	draw_text(200,30,string("G y: {0}",_tile_y));
 	
@@ -26,7 +26,15 @@ if(_tile_x >= 0 && _tile_y >= 0 && _tile_y <=4 && _tile_x <=4){
 		_obj.y-= 10;
 		v_last_tile_index = v_tile_index;
 	}
-} 
+}  else {
+	if(v_last_tile_index > -1) {
+		var _last_obj =  v_list_obj_tiles[|v_last_tile_index];
+		_last_obj.y += 10
+		v_last_tile_index = -1
+	}
+}
+
+
 
 draw_text(200,15,string("M x: {0}",mouse_x));
 draw_text(200,0,string("M y: {0}",mouse_y));

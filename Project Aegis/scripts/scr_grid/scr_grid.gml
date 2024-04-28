@@ -25,11 +25,11 @@ function draw_grid(){
 	}
 }
 
-function place_grid_objects(_offset_y,_offset_x,_tile_height,_tile_width){
-	for(i =0; i < 5; i++ ;) {
-		var _layer = 100 - (i*10);
-		for(j =0; j < 5; j++ ;) {
-			_layer -= 10 ;
+function place_grid_objects(_size_x,_size_y,_offset_y,_offset_x,_tile_height,_tile_width){
+	for(i =0; i < _size_y; i++ ;) {
+		var _layer = (_size_x*_size_y) - (i*_size_x);
+		for(j =0; j < _size_x; j++ ;) {
+			_layer -= 1 ;
 			// x= x*0.5w + y*-0.5w
 			// y = x*0.25h + y*0.25h
 			var _x = (j * (_tile_width*0.5)) + (i * - (_tile_width * 0.5));
