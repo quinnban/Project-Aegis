@@ -3,8 +3,8 @@
 
 
 //mouse tile
-var _tile_x = calculate_tile_x(mouse_x,mouse_y);
-var _tile_y = calculate_tile_y(mouse_x,mouse_y);
+var _tile_x = calculate_tile_x_floor(mouse_x,mouse_y);
+var _tile_y = calculate_tile_y_floor(mouse_x,mouse_y);
 
 
 if(_tile_x >= 0 && _tile_y >= 0 && _tile_y < v_size_y && _tile_x < v_size_x){
@@ -37,6 +37,6 @@ if(obj_character.v_target_x > -1 && obj_character.v_target_y > -1){
 		if(_direction = DIRECTION.NONE){
 			obj_character.v_state = PLAYER_STATE.IDLE;
 		}
-		move_object_to_tile(obj_character,_direction);
+		move_object_to_tile_step(obj_character,_direction);
 	}
 }

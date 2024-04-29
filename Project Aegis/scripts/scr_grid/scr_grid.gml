@@ -48,19 +48,28 @@ function calculate_pixel_y(_tile_x,_tile_y,_tile_height,_tile_width){
 	return  ((_tile_x * (_tile_height * 0.25)) + (_tile_y * (_tile_height * 0.25))) + v_offset_y ;
 }
 
+function calculate_tile_x_floor(_pixel_x,_pixel_y){
+	return floor(calculate_tile_x(_pixel_x,_pixel_y));
+}
+
+function calculate_tile_y_floor(_pixel_x,_pixel_y){
+	return floor(calculate_tile_y(_pixel_x,_pixel_y));
+}
+
+
 function calculate_tile_x(_pixel_x,_pixel_y){
-	return  floor(((_pixel_y - v_offset_y) + ((_pixel_x - v_offset_x)/2))/16);
+	return ((_pixel_y - v_offset_y) + ((_pixel_x - v_offset_x)/2))/16;
 }
 
 function calculate_tile_y(_pixel_x,_pixel_y){
-	return  floor(((_pixel_y - v_offset_y) - ((_pixel_x - v_offset_x)/2))/16);
+	return ((_pixel_y - v_offset_y) - ((_pixel_x - v_offset_x)/2))/16;
 }
 
 function find_next_tile_to_move_object_to(_character){
-	var _char_x = calculate_tile_x(_character.x,_character.y);
-	var _char_y = calculate_tile_y(_character.x,_character.y);
-	var _target_tile_x = calculate_tile_x(_character.v_target_x,_character.v_target_y);
-	var _target_tile_y = calculate_tile_y(_character.v_target_x,_character.v_target_y);
+	var _char_x = calculate_tile_x_floor(_character.x,_character.y);
+	var _char_y = calculate_tile_y_floor(_character.x,_character.y);
+	var _target_tile_x = calculate_tile_x_floor(_character.v_target_x,_character.v_target_y);
+	var _target_tile_y = calculate_tile_y_floor(_character.v_target_x,_character.v_target_y);
 	var _distance_y = abs(_char_y -_target_tile_y);
 	var _distance_x = abs(_char_x - _target_tile_x);
 	
@@ -107,26 +116,26 @@ function find_direction_for_object_next_tile(_character){
 	}
 }
 
-function move_object_to_tile(_character,_direction){
-		var _x_pixel_distance = abs(_character.x - _character.v_next_x) //*0.5;
-		var _y_pixel_distance = abs(_character.y - _character.v_next_y) //*0.5;
+function move_object_to_tile_step(_character,_direction){
+		var _x_pixel_distance = 32 * _character.v_speed;
+		var _y_pixel_distance = 16 * _character.v_speed;
 		
 		switch(_direction){
 			case DIRECTION.UP:
-			obj_character.x+=_x_pixel_distance;
-			obj_character.y-=_y_pixel_distance;
+			_character.x+=_x_pixel_distance;
+			_character.y-=_y_pixel_distance;
 			break;
 			case DIRECTION.DOWN:
-			obj_character.x-=_x_pixel_distance;
-			obj_character.y+=_y_pixel_distance;
+			_character.x-=_x_pixel_distance;
+			_character.y+=_y_pixel_distance;
 			break;
 			case DIRECTION.LEFT:
-			obj_character.x-=_x_pixel_distance;
-			obj_character.y-=_y_pixel_distance;
+			_character.x-=_x_pixel_distance;
+			_character.y-=_y_pixel_distance;
 			break;
 			case DIRECTION.RIGHT:
-			obj_character.x+= _x_pixel_distance;	
-			obj_character.y+=_y_pixel_distance;
+			_character.x+= _x_pixel_distance;	
+			_character.y+=_y_pixel_distance;
 			break;	
 		}
 }

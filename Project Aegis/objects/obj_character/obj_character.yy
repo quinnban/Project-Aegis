@@ -31,6 +31,7 @@
     {"$GMObjectProperty":"","%Name":"v_state","filters":[],"listItems":[],"multiselect":false,"name":"v_state","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"","%Name":"v_next_x","filters":[],"listItems":[],"multiselect":false,"name":"v_next_x","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
     {"$GMObjectProperty":"","%Name":"v_next_y","filters":[],"listItems":[],"multiselect":false,"name":"v_next_y","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
+    {"$GMObjectProperty":"","%Name":"v_speed","filters":[],"listItems":[],"multiselect":false,"name":"v_speed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0.03125","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
