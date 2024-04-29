@@ -17,45 +17,26 @@ if(_tile_x >= 0 && _tile_y >= 0 && _tile_y < v_size_y && _tile_x < v_size_x){
 }
 
 if(obj_character.v_target_x > -1 && obj_character.v_target_y > -1){
-//char tile
-var _char_x = calculate_tile_x(obj_character.x,obj_character.y);
-var _char_y = calculate_tile_y(obj_character.x,obj_character.y);
-//target tile
-var _target_tile_x = calculate_tile_x(obj_character.v_target_x,obj_character.v_target_y);
-var _target_tile_y = calculate_tile_y(obj_character.v_target_x,obj_character.v_target_y);
-
-var _distance_y = abs(_char_y -_target_tile_y);
-var _distance_x = abs(_char_x - _target_tile_x);
-var _direction;  
-var _next_tile;
-
-if((_distance_y >= _distance_x)  && _distance_y !=0) {
-	if(_char_y - _target_tile_y > 0){
-		_direction = DIRECTION.UP;
-		_next_tile = v_list_obj_tiles[|((_char_y-1) * v_size_x + _char_x)];
-	} else {
-		_direction = DIRECTION.DOWN;
-		_next_tile = v_list_obj_tiles[|((_char_y+1) * v_size_x + _char_x)];
-	}
-	} else if (_distance_x > _distance_y) {
-		if(_char_x - _target_tile_x > 0){
-			_direction = DIRECTION.LEFT;
-			_next_tile = v_list_obj_tiles[|((_char_y) * v_size_x + (_char_x-1))];
+	
+	if(obj_character.v_state = PLAYER_STATE.IDLE){
+		var _next_tile = find_next_tile_to_move_object_to(obj_character);
+		if(_next_tile != undefined) {
+			obj_character.v_next_x =  _next_tile.x;
+			obj_character.v_next_y = _next_tile.y;
+			obj_character.v_state = PLAYER_STATE.MOVING;
 		} else {
-			_direction = DIRECTION.RIGHT;
-			_next_tile = v_list_obj_tiles[|((_char_y) * v_size_x + (_char_x+1))];
+			obj_character.v_next_x =  -1;
+			obj_character.v_next_y = -1;
+			obj_character.v_target_x = -1;
+			obj_character.v_target_y = -1;
 		}
-	} else {
-		_direction = DIRECTION.NONE;
 	}
-
-	switch(_direction){
-		case DIRECTION.UP:
-		case DIRECTION.DOWN:
-		case DIRECTION.LEFT:
-		case DIRECTION.RIGHT:
-		obj_character.x=_next_tile.x;	
-		obj_character.y=_next_tile.y;
-		break;	
+	
+	if(obj_character.v_state = PLAYER_STATE.MOVING){
+		var _direction = find_direction_for_object_next_tile(obj_character);
+		if(_direction = DIRECTION.NONE){
+			obj_character.v_state = PLAYER_STATE.IDLE;
+		}
+		move_object_to_tile(obj_character,_direction);
 	}
 }

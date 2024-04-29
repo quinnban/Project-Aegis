@@ -25,27 +25,110 @@ function draw_grid(){
 	}
 }
 
-function place_grid_objects(_size_x,_size_y,_offset_y,_offset_x,_tile_height,_tile_width){
+function place_grid_objects(_size_x,_size_y,_tile_height,_tile_width){
 	for(i =0; i < _size_y; i++ ;) {
 		var _layer = (_size_x*_size_y) - (i*_size_x);
 		for(j =0; j < _size_x; j++ ;) {
 			_layer -= 1 ;
-			// x= x*0.5w + y*-0.5w
-			// y = x*0.25h + y*0.25h
-			var _x = (j * (_tile_width*0.5)) + (i * - (_tile_width * 0.5));
-			var _y = (j * (_tile_height * 0.25)) +  (i * (_tile_height * 0.25));
-			var _obj_id = instance_create_depth(_x+_offset_x,_y+_offset_y,_layer,obj_grid_square);
+			var _x = calculate_pixel_x(j,i,_tile_height,_tile_width)
+			var _y = calculate_pixel_y(j,i,_tile_height,_tile_width)
+			var _obj_id = instance_create_depth(_x,_y,_layer,obj_grid_square);
 			ds_list_add(v_list_obj_tiles,_obj_id);
 		}
 	}
 }
 
+function calculate_pixel_x(_tile_x,_tile_y,_tile_height,_tile_width){
+	// x= x*0.5w + y*-0.5w
+	return ((_tile_x * (_tile_width*0.5)) + (_tile_y * - (_tile_width * 0.5))) + v_offset_x;
+}
+
+function calculate_pixel_y(_tile_x,_tile_y,_tile_height,_tile_width){
+	// y = x*0.25h + y*0.25h
+	return  ((_tile_x * (_tile_height * 0.25)) + (_tile_y * (_tile_height * 0.25))) + v_offset_y ;
+}
+
 function calculate_tile_x(_pixel_x,_pixel_y){
-	return  floor(((_pixel_y -v_offset_y) + ((_pixel_x - v_offset_x)/2))/16);
+	return  floor(((_pixel_y - v_offset_y) + ((_pixel_x - v_offset_x)/2))/16);
 }
 
 function calculate_tile_y(_pixel_x,_pixel_y){
-	return  floor(((_pixel_y -v_offset_y) - ((_pixel_x - v_offset_x)/2))/16);
+	return  floor(((_pixel_y - v_offset_y) - ((_pixel_x - v_offset_x)/2))/16);
 }
+
+function find_next_tile_to_move_object_to(_character){
+	var _char_x = calculate_tile_x(_character.x,_character.y);
+	var _char_y = calculate_tile_y(_character.x,_character.y);
+	var _target_tile_x = calculate_tile_x(_character.v_target_x,_character.v_target_y);
+	var _target_tile_y = calculate_tile_y(_character.v_target_x,_character.v_target_y);
+	var _distance_y = abs(_char_y -_target_tile_y);
+	var _distance_x = abs(_char_x - _target_tile_x);
+	
+	if((_distance_y >= _distance_x)  && _distance_y !=0) {
+		if(_char_y - _target_tile_y > 0){
+			return v_list_obj_tiles[|((_char_y-1) * v_size_x + _char_x)];
+		} else {
+			return v_list_obj_tiles[|((_char_y+1) * v_size_x + _char_x)];
+		}
+	} else if (_distance_x > _distance_y) {
+		if(_char_x - _target_tile_x > 0){
+			return v_list_obj_tiles[|((_char_y) * v_size_x + (_char_x-1))];
+		} else {
+			return v_list_obj_tiles[|((_char_y) * v_size_x + (_char_x+1))];
+		}
+	} else {
+		return undefined;
+	}
+}
+
+function find_direction_for_object_next_tile(_character){
+	var _char_x = calculate_tile_x(_character.x,_character.y);
+	var _char_y = calculate_tile_y(_character.x,_character.y);
+	var _target_tile_x = calculate_tile_x(_character.v_next_x,_character.v_next_y);
+	var _target_tile_y = calculate_tile_y(_character.v_next_x,_character.v_next_y);
+	var _distance_y = abs(_char_y -_target_tile_y);
+	var _distance_x = abs(_char_x - _target_tile_x);
+	
+	if((_distance_y >= _distance_x)  && _distance_y !=0) {
+		if(_char_y - _target_tile_y > 0){
+			return DIRECTION.UP;
+		} else {
+			return DIRECTION.DOWN;
+		}
+	} else if (_distance_x > _distance_y) {
+		if(_char_x - _target_tile_x > 0){
+			return DIRECTION.LEFT;
+		} else {
+			return DIRECTION.RIGHT;
+		}
+	} else {
+		return DIRECTION.NONE;
+	}
+}
+
+function move_object_to_tile(_character,_direction){
+		var _x_pixel_distance = abs(_character.x - _character.v_next_x) *0.5;
+		var _y_pixel_distance = abs(_character.y - _character.v_next_y) *0.5;
+		
+		switch(_direction){
+			case DIRECTION.UP:
+			obj_character.x+=_x_pixel_distance;
+			obj_character.y-=_y_pixel_distance;
+			break;
+			case DIRECTION.DOWN:
+			obj_character.x-=_x_pixel_distance;
+			obj_character.y+=_y_pixel_distance;
+			break;
+			case DIRECTION.LEFT:
+			obj_character.x-=_x_pixel_distance;
+			obj_character.y-=_y_pixel_distance;
+			break;
+			case DIRECTION.RIGHT:
+			obj_character.x+= _x_pixel_distance;	
+			obj_character.y+=_y_pixel_distance;
+			break;	
+		}
+}
+
 		
 

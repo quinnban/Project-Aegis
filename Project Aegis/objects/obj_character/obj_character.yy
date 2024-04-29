@@ -1,7 +1,9 @@
 {
   "$GMObject":"",
   "%Name":"obj_character",
-  "eventList":[],
+  "eventList":[
+    {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
   "name":"obj_character",
   "overriddenProperties":[],
@@ -26,6 +28,9 @@
   "properties":[
     {"$GMObjectProperty":"","%Name":"v_target_x","filters":[],"listItems":[],"multiselect":false,"name":"v_target_x","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
     {"$GMObjectProperty":"","%Name":"v_target_y","filters":[],"listItems":[],"multiselect":false,"name":"v_target_y","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
+    {"$GMObjectProperty":"","%Name":"v_state","filters":[],"listItems":[],"multiselect":false,"name":"v_state","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"","%Name":"v_next_x","filters":[],"listItems":[],"multiselect":false,"name":"v_next_x","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
+    {"$GMObjectProperty":"","%Name":"v_next_y","filters":[],"listItems":[],"multiselect":false,"name":"v_next_y","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
