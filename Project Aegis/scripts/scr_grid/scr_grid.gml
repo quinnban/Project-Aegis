@@ -107,8 +107,8 @@ function find_direction_for_object_next_tile(_character){
 }
 
 function move_object_to_tile(_character,_direction){
-		var _x_pixel_distance = abs(_character.x - _character.v_next_x) *0.5;
-		var _y_pixel_distance = abs(_character.y - _character.v_next_y) *0.5;
+		var _x_pixel_distance = abs(_character.x - _character.v_next_x) //*0.5;
+		var _y_pixel_distance = abs(_character.y - _character.v_next_y) //*0.5;
 		
 		switch(_direction){
 			case DIRECTION.UP:
