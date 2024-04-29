@@ -15,23 +15,23 @@ if(_tile_x >= 0 && _tile_y >= 0 && _tile_y < v_size_y && _tile_x < v_size_x){
 	draw_text(200,45,string("G x: {0}",_tile_x));
 	draw_text(200,30,string("G y: {0}",_tile_y));
 	
-	if(v_tile_index != v_last_tile_index){
+	//if(v_tile_index != v_last_tile_index){
 		
-		if(v_last_tile_index > -1) {
-			var _last_obj =  v_list_obj_tiles[|v_last_tile_index];
-			_last_obj.y += 10
-		}
+	//	if(v_last_tile_index > -1) {
+	//		var _last_obj =  v_list_obj_tiles[|v_last_tile_index];
+	//		_last_obj.y += 10
+	//	}
 		
-		var _obj = v_list_obj_tiles[|v_tile_index];
-		_obj.y-= 10;
-		v_last_tile_index = v_tile_index;
-	}
-}  else {
-	if(v_last_tile_index > -1) {
-		var _last_obj =  v_list_obj_tiles[|v_last_tile_index];
-		_last_obj.y += 10
-		v_last_tile_index = -1
-	}
+	//	var _obj = v_list_obj_tiles[|v_tile_index];
+	//	_obj.y-= 10;
+	//	v_last_tile_index = v_tile_index;
+	//}
+//}  else {
+//	if(v_last_tile_index > -1) {
+//		var _last_obj =  v_list_obj_tiles[|v_last_tile_index];
+//		_last_obj.y += 10
+//		v_last_tile_index = -1
+//	}
 }
 
 

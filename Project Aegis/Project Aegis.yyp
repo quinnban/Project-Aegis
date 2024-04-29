@@ -36,11 +36,13 @@
   "resources":[
     {"id":{"name":"obj_controller_grid","path":"objects/obj_controller_grid/obj_controller_grid.yy",},},
     {"id":{"name":"obj_grid_square","path":"objects/obj_grid_square/obj_grid_square.yy",},},
+    {"id":{"name":"obj_character","path":"objects/obj_character/obj_character.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"scr_grid","path":"scripts/scr_grid/scr_grid.yy",},},
     {"id":{"name":"s_grid_box","path":"sprites/s_grid_box/s_grid_box.yy",},},
     {"id":{"name":"Sprite1","path":"sprites/Sprite1/Sprite1.yy",},},
     {"id":{"name":"Sprite3","path":"sprites/Sprite3/Sprite3.yy",},},
+    {"id":{"name":"Sprite4","path":"sprites/Sprite4/Sprite4.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

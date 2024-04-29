@@ -18,7 +18,9 @@
   ],
   "ResourceOrderSettings":[
     {"name":"obj_grid_square","order":1,"path":"objects/obj_grid_square/obj_grid_square.yy",},
+    {"name":"obj_character","order":2,"path":"objects/obj_character/obj_character.yy",},
     {"name":"s_grid_box","order":1,"path":"sprites/s_grid_box/s_grid_box.yy",},
     {"name":"Sprite3","order":2,"path":"sprites/Sprite3/Sprite3.yy",},
+    {"name":"Sprite4","order":3,"path":"sprites/Sprite4/Sprite4.yy",},
   ],
 }

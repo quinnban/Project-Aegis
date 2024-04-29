@@ -40,11 +40,12 @@ function place_grid_objects(_size_x,_size_y,_offset_y,_offset_x,_tile_height,_ti
 	}
 }
 
-function mouse_x_y_to_grid_x_y(_x,_y){
-	//stackoverflow matries math here only works for 32x32
-	var _tile_x = floor((1/512) * ((_x * 16) + (_y * 16) - (150 * 16)));
-	var _tile_y = floor((1/512) * ((_x * 16) + (_y * 16) + (150 * 16)));
-	return [_tile_x,_tile_y];
+function calculate_tile_x(_pixel_x,_pixel_y){
+	return  floor(((_pixel_y -v_offset_y) + ((_pixel_x - v_offset_x)/2))/16);
+}
+
+function calculate_tile_y(_pixel_x,_pixel_y){
+	return  floor(((_pixel_y -v_offset_y) - ((_pixel_x - v_offset_x)/2))/16);
 }
 		
 
