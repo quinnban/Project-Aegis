@@ -82,6 +82,7 @@ function find_next_tile_to_move_object_to(_character){
 }
 
 function find_direction_for_object_next_tile(_character){
+	//FIXME calculate_tile uses rounding so this doesnt work well if we move anything less that a tile at a time
 	var _char_x = calculate_tile_x(_character.x,_character.y);
 	var _char_y = calculate_tile_y(_character.x,_character.y);
 	var _target_tile_x = calculate_tile_x(_character.v_next_x,_character.v_next_y);
