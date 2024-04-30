@@ -5,3 +5,4 @@ enum PLAYER_STATE {
 }
 
 v_state = PLAYER_STATE.IDLE;
+image_speed = 0.5;

@@ -101,17 +101,22 @@ function find_direction_for_object_next_tile(_character){
 	
 	if((_distance_y >= _distance_x)  && _distance_y !=0) {
 		if(_char_y - _target_tile_y > 0){
+			_character.sprite_index = s_char_walk_up;
 			return DIRECTION.UP;
 		} else {
+			_character.sprite_index = s_char_walk_down;
 			return DIRECTION.DOWN;
 		}
 	} else if (_distance_x > _distance_y) {
 		if(_char_x - _target_tile_x > 0){
+			_character.sprite_index = s_char_walk_horizonal;
 			return DIRECTION.LEFT;
 		} else {
+			_character.sprite_index = s_char_walk_horizonal;
 			return DIRECTION.RIGHT;
 		}
 	} else {
+		_character.sprite_index = s_char_base;
 		return DIRECTION.NONE;
 	}
 }
