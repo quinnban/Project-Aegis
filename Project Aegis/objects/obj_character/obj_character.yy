@@ -37,6 +37,8 @@
     {"$GMObjectProperty":"","%Name":"v_tile_z","filters":[],"listItems":[],"multiselect":false,"name":"v_tile_z","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"-1","varType":0,},
     {"$GMObjectProperty":"","%Name":"v_offset_y","filters":[],"listItems":[],"multiselect":false,"name":"v_offset_y","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
     {"$GMObjectProperty":"","%Name":"v_offset_x","filters":[],"listItems":[],"multiselect":false,"name":"v_offset_x","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"","%Name":"v_target_z","filters":[],"listItems":[],"multiselect":false,"name":"v_target_z","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
+    {"$GMObjectProperty":"","%Name":"v_next_z","filters":[],"listItems":[],"multiselect":false,"name":"v_next_z","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
