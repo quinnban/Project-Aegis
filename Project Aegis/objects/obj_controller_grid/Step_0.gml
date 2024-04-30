@@ -6,6 +6,11 @@
 var _tile_x = calculate_tile_x_floor(mouse_x,mouse_y);
 var _tile_y = calculate_tile_y_floor(mouse_x,mouse_y);
 
+vy += (keyboard_check(vk_down) - keyboard_check(vk_up))*8;
+vx += (keyboard_check(vk_right) - keyboard_check(vk_left))*8;
+
+camera_set_view_pos(view_camera[0], vx, vy);
+
 
 if(_tile_x >= 0 && _tile_y >= 0 && _tile_y < v_size_y && _tile_x < v_size_x){
 	if(mouse_check_button_released(mb_any)){
