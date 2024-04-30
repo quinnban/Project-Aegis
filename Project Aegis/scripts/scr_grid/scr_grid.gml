@@ -109,13 +109,16 @@ function find_direction_for_object_next_tile(_character){
 		}
 	} else if (_distance_x > _distance_y) {
 		if(_char_x - _target_tile_x > 0){
+			_character.image_xscale =-1
 			_character.sprite_index = s_char_walk_horizonal;
 			return DIRECTION.LEFT;
 		} else {
+			_character.image_xscale =1
 			_character.sprite_index = s_char_walk_horizonal;
 			return DIRECTION.RIGHT;
 		}
 	} else {
+		_character.image_xscale =1
 		_character.sprite_index = s_char_base;
 		return DIRECTION.NONE;
 	}
