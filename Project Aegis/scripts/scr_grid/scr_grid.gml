@@ -9,7 +9,13 @@ function place_grid_objects(_size_x,_size_y,_tile_height,_tile_width){
 			_layer -= 1 ;
 			var _x = calculate_pixel_x(j,i,_tile_height,_tile_width);
 			var _y = calculate_pixel_y(j,i,_tile_height,_tile_width);
-			var _obj_id = instance_create_depth(_x,_y,_layer,obj_grid_square);
+			var _obj_id = instance_create_depth(0,0,_layer,obj_grid_square,{
+				v_tile_x:j,
+				v_tile_y:i,
+				v_tile_z:0,
+				v_offset_x:v_offset_x,
+				v_offset_y:v_offset_y
+				});
 			ds_list_add(v_list_obj_tiles,_obj_id);
 		}
 	}
@@ -33,7 +39,6 @@ function calculate_tile_y_floor(_pixel_x,_pixel_y){
 	return floor(calculate_tile_y(_pixel_x,_pixel_y));
 }
 
-
 function calculate_tile_x(_pixel_x,_pixel_y){
 	return ((_pixel_y - v_offset_y) + ((_pixel_x - v_offset_x)/2))/16;
 }
@@ -42,42 +47,35 @@ function calculate_tile_y(_pixel_x,_pixel_y){
 	return ((_pixel_y - v_offset_y) - ((_pixel_x - v_offset_x)/2))/16;
 }
 
-function find_next_tile_to_move_object_to(_character){
-	var _char_x = calculate_tile_x_floor(_character.x,_character.y);
-	var _char_y = calculate_tile_y_floor(_character.x,_character.y);
-	var _target_tile_x = calculate_tile_x_floor(_character.v_target_x,_character.v_target_y);
-	var _target_tile_y = calculate_tile_y_floor(_character.v_target_x,_character.v_target_y);
-	var _distance_y = abs(_char_y -_target_tile_y);
-	var _distance_x = abs(_char_x - _target_tile_x);
+function find_next_tile_to_move_object_to_x_y(_character){
+	var _distance_x = abs(_character.v_tile_x -_character.v_target_x);
+	var _distance_y = abs(_character.v_tile_y -_character.v_target_y);
 	
 	if((_distance_y >= _distance_x)  && _distance_y !=0) {
-		if(_char_y - _target_tile_y > 0){
-			return v_list_obj_tiles[|((_char_y-1) * v_size_x + _char_x)];
+		if(_character.v_tile_y - _character.v_target_y > 0){
+			return v_list_obj_tiles[|((_character.v_tile_y -1) * v_size_x + _character.v_tile_x)];
 		} else {
-			return v_list_obj_tiles[|((_char_y+1) * v_size_x + _char_x)];
+			return v_list_obj_tiles[|((_character.v_tile_y +1) * v_size_x + _character.v_tile_x)];
 		}
 	} else if (_distance_x > _distance_y) {
-		if(_char_x - _target_tile_x > 0){
-			return v_list_obj_tiles[|((_char_y) * v_size_x + (_char_x-1))];
+		if(_character.v_tile_x - _character.v_target_x > 0){
+			return v_list_obj_tiles[|((_character.v_tile_y) * v_size_x + (_character.v_tile_x-1))];
 		} else {
-			return v_list_obj_tiles[|((_char_y) * v_size_x + (_char_x+1))];
+			return v_list_obj_tiles[|((_character.v_tile_y) * v_size_x + (_character.v_tile_x+1))];
 		}
 	} else {
 		return undefined;
 	}
 }
 
-function find_direction_for_object_next_tile(_character){
-	//FIXME calculate_tile uses rounding so this doesnt work well if we move anything less that a tile at a time
+function find_direction_for_object_next_tile_x_y(_character){
 	var _char_x = calculate_tile_x(_character.x,_character.y);
 	var _char_y = calculate_tile_y(_character.x,_character.y);
-	var _target_tile_x = calculate_tile_x(_character.v_next_x,_character.v_next_y);
-	var _target_tile_y = calculate_tile_y(_character.v_next_x,_character.v_next_y);
-	var _distance_y = abs(_char_y -_target_tile_y);
-	var _distance_x = abs(_char_x - _target_tile_x);
+	var _distance_y = abs(_char_y -_character.v_next_y);
+	var _distance_x = abs(_char_x - _character.v_next_x);
 	
 	if((_distance_y >= _distance_x)  && _distance_y !=0) {
-		if(_char_y - _target_tile_y > 0){
+		if(_char_y - _character.v_next_y > 0){
 			_character.sprite_index = s_char_walk_up;
 			return DIRECTION.UP;
 		} else {
@@ -85,7 +83,7 @@ function find_direction_for_object_next_tile(_character){
 			return DIRECTION.DOWN;
 		}
 	} else if (_distance_x > _distance_y) {
-		if(_char_x - _target_tile_x > 0){
+		if(_char_x - _character.v_next_x > 0){
 			_character.image_xscale =-1
 			_character.sprite_index = s_char_walk_horizonal;
 			return DIRECTION.LEFT;
