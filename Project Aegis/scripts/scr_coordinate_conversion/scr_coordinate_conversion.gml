@@ -5,8 +5,8 @@
 
 function isometric_to_pixel_coordinates(_x, _y){
 	var _coordinates
-	 _coordinates[0] = (0.5 * _x) - _y;
-	 _coordinates[1] = (0.5 * _x) + _y;
+	 _coordinates[0] = (0.5 * _x) - (_y*-1);
+	 _coordinates[1] = -((0.5 * _x) + (_y*-1));
 	return _coordinates;
 }
 
