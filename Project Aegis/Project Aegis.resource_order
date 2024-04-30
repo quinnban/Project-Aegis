@@ -16,5 +16,11 @@
     {"name":"Tile Sets","order":2,"path":"folders/Tile Sets.yy",},
     {"name":"Timelines","order":8,"path":"folders/Timelines.yy",},
   ],
-  "ResourceOrderSettings":[],
+  "ResourceOrderSettings":[
+    {"name":"obj_depth_controller","order":2,"path":"objects/obj_depth_controller/obj_depth_controller.yy",},
+    {"name":"obj_map_tile","order":1,"path":"objects/obj_map_tile/obj_map_tile.yy",},
+    {"name":"obj_parent_depth","order":3,"path":"objects/obj_parent_depth/obj_parent_depth.yy",},
+    {"name":"spr_map_tile","order":2,"path":"sprites/spr_map_tile/spr_map_tile.yy",},
+    {"name":"Sprite2","order":1,"path":"sprites/Sprite2/Sprite2.yy",},
+  ],
 }
