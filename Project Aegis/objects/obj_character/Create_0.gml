@@ -1,7 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 enum PLAYER_STATE {
-	MOVING,IDLE
+	MOVING,IDLE,CHOOSING_MOVE
 }
 
 v_state = PLAYER_STATE.IDLE;

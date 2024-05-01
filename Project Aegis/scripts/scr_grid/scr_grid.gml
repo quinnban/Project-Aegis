@@ -31,46 +31,46 @@ function calculate_pixel_y(_tile_x,_tile_y,_tile_height,_tile_width){
 	return  ((_tile_x * (_tile_height * 0.25)) + (_tile_y * (_tile_height * 0.25))) + v_offset_y ;
 }
 
-function calculate_tile_x_floor(_pixel_x,_pixel_y){
-	return floor(calculate_tile_x(_pixel_x,_pixel_y));
+function calculate_tile_x_floor(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
+	return floor(calculate_tile_x(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x));
 }
 
-function calculate_tile_y_floor(_pixel_x,_pixel_y){
-	return floor(calculate_tile_y(_pixel_x,_pixel_y));
+function calculate_tile_y_floor(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
+	return floor(calculate_tile_y(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x));
 }
 
-function calculate_tile_x(_pixel_x,_pixel_y){
-	return ((_pixel_y - v_offset_y) + ((_pixel_x - v_offset_x)/2))/16;
+function calculate_tile_x(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
+	return ((_pixel_y - _v_offset_y) + ((_pixel_x - _v_offset_x)/2))/16;
 }
 
-function calculate_tile_y(_pixel_x,_pixel_y){
-	return ((_pixel_y - v_offset_y) - ((_pixel_x - v_offset_x)/2))/16;
+function calculate_tile_y(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
+	return ((_pixel_y - _v_offset_y) - ((_pixel_x - _v_offset_x)/2))/16;
 }
 
-function find_next_tile_to_move_object_to_x_y(_character){
+function find_next_tile_to_move_object_to_x_y(_character,_grid){
 	var _distance_x = abs(_character.v_tile_x -_character.v_target_x);
 	var _distance_y = abs(_character.v_tile_y -_character.v_target_y);
 	
 	if((_distance_y >= _distance_x)  && _distance_y !=0) {
 		if(_character.v_tile_y - _character.v_target_y > 0){
-			return v_list_obj_tiles[|((_character.v_tile_y -1) * v_size_x + _character.v_tile_x)];
+			return _grid.v_list_obj_tiles[|((_character.v_tile_y -1) * _grid.v_size_x + _character.v_tile_x)];
 		} else {
-			return v_list_obj_tiles[|((_character.v_tile_y +1) * v_size_x + _character.v_tile_x)];
+			return _grid.v_list_obj_tiles[|((_character.v_tile_y +1) *_grid. v_size_x + _character.v_tile_x)];
 		}
 	} else if (_distance_x > _distance_y) {
 		if(_character.v_tile_x - _character.v_target_x > 0){
-			return v_list_obj_tiles[|((_character.v_tile_y) * v_size_x + (_character.v_tile_x-1))];
+			return _grid.v_list_obj_tiles[|((_character.v_tile_y) * _grid.v_size_x + (_character.v_tile_x-1))];
 		} else {
-			return v_list_obj_tiles[|((_character.v_tile_y) * v_size_x + (_character.v_tile_x+1))];
+			return _grid.v_list_obj_tiles[|((_character.v_tile_y) * _grid.v_size_x + (_character.v_tile_x+1))];
 		}
 	} else {
 		return undefined;
 	}
 }
 
-function find_direction_for_object_next_tile_x_y(_character){
-	var _char_x = calculate_tile_x(_character.x,_character.y);
-	var _char_y = calculate_tile_y(_character.x,_character.y);
+function find_direction_for_object_next_tile_x_y(_character,_grid){
+	var _char_x = calculate_tile_x(_character.x,_character.y,_grid.v_offset_y,_grid.v_offset_x);
+	var _char_y = calculate_tile_y(_character.x,_character.y,_grid.v_offset_y,_grid.v_offset_x);
 	var _distance_y = abs(_char_y -_character.v_next_y);
 	var _distance_x = abs(_char_x - _character.v_next_x);
 	
@@ -123,5 +123,8 @@ function move_object_to_tile_step(_character,_direction){
 		}
 }
 
-		
+function calculate_index_of_tile(_x,_y,_size_x){
+	return _y * _size_x + _x; 
+}
+
 
