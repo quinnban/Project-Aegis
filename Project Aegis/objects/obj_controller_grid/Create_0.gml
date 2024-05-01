@@ -11,6 +11,14 @@ var _char = instance_create_depth(0,0,-100,obj_character,{
 	v_offset_x:v_offset_x,
 	v_offset_y:v_offset_y
 });
+
+var _cha1r = instance_create_depth(0,0,-100,obj_character,{
+	v_tile_x:30,
+	v_tile_y:10,
+	v_tile_z:0,
+	v_offset_x:v_offset_x,
+	v_offset_y:v_offset_y
+});
 //layer_add_instance("instances",_char);
 
 enum DIRECTION {UP,DOWN,LEFT,RIGHT,NONE}

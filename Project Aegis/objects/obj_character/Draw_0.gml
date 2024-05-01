@@ -22,6 +22,7 @@ if(v_state == PLAYER_STATE.CHOOSING_MOVE){
 			with(obj_controller_grid){
 				event_perform(ev_other, ev_user1)
 			}
+			global.cur_char = undefined;
 			v_state = PLAYER_STATE.IDLE;
 		}
 	}	
@@ -51,6 +52,6 @@ if(v_target_x > -1 && v_target_y > -1){
 			v_tile_y = v_next_y;
 			v_state = PLAYER_STATE.IDLE;
 		}
-		move_object_to_tile_step(obj_character,_direction);
+		move_object_to_tile_step(self,_direction);
 	}
 }

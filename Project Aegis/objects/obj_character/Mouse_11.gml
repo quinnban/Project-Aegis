@@ -5,5 +5,6 @@ if(v_state = PLAYER_STATE.IDLE){
 	with(_instance){
 	 event_perform(ev_other, ev_user1)
 	} 
+	global.cur_char = undefined;
 }
        
