@@ -26,6 +26,8 @@
     {"name":"s_char_walk_horizonal","order":5,"path":"sprites/s_char_walk_horizonal/s_char_walk_horizonal.yy",},
     {"name":"s_char_walk_up","order":4,"path":"sprites/s_char_walk_up/s_char_walk_up.yy",},
     {"name":"s_grid_box_hightlight","order":7,"path":"sprites/s_grid_box_hightlight/s_grid_box_hightlight.yy",},
+    {"name":"s_grid_box_selected","order":9,"path":"sprites/s_grid_box_selected/s_grid_box_selected.yy",},
+    {"name":"s_grid_box_water","order":8,"path":"sprites/s_grid_box_water/s_grid_box_water.yy",},
     {"name":"s_grid_box","order":1,"path":"sprites/s_grid_box/s_grid_box.yy",},
   ],
 }

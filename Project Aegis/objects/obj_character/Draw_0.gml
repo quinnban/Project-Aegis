@@ -20,7 +20,7 @@ if(v_state == PLAYER_STATE.CHOOSING_MOVE){
 			v_target_y = _obj.v_tile_y;
 			v_target_z = _obj.v_tile_z;
 			with(obj_controller_grid){
-				event_perform(ev_other, ev_user1)
+				event_perform(ev_other, ev_user1);
 			}
 			global.cur_char = undefined;
 			v_state = PLAYER_STATE.IDLE;
