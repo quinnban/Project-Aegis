@@ -1,52 +1,6 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
-
-function place_grid_objects(_size_x,_size_y,_tile_height,_tile_width){
-	for(i =0; i < _size_y; i++ ;) {
-		var _layer = (_size_x*_size_y) - (i*_size_x);
-		for(j =0; j < _size_x; j++ ;) {
-			_layer -= 1 ;
-			var _x = calculate_pixel_x(j,i,_tile_height,_tile_width);
-			var _y = calculate_pixel_y(j,i,_tile_height,_tile_width);
-			var _obj_id = instance_create_depth(0,0,_layer,obj_grid_square,{
-				v_tile_x:j,
-				v_tile_y:i,
-				v_tile_z:0,
-				v_offset_x:v_offset_x,
-				v_offset_y:v_offset_y
-				});
-			ds_list_add(v_list_obj_tiles,_obj_id);
-		}
-	}
-}
-
-function calculate_pixel_x(_tile_x,_tile_y,_tile_height,_tile_width){
-	// x= x*0.5w + y*-0.5w
-	return ((_tile_x * (_tile_width*0.5)) + (_tile_y * - (_tile_width * 0.5))) + v_offset_x;
-}
-
-function calculate_pixel_y(_tile_x,_tile_y,_tile_height,_tile_width){
-	// y = x*0.25h + y*0.25h
-	return  ((_tile_x * (_tile_height * 0.25)) + (_tile_y * (_tile_height * 0.25))) + v_offset_y ;
-}
-
-function calculate_tile_x_floor(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
-	return floor(calculate_tile_x(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x));
-}
-
-function calculate_tile_y_floor(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
-	return floor(calculate_tile_y(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x));
-}
-
-function calculate_tile_x(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
-	return ((_pixel_y - _v_offset_y) + ((_pixel_x - _v_offset_x)/2))/16;
-}
-
-function calculate_tile_y(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
-	return ((_pixel_y - _v_offset_y) - ((_pixel_x - _v_offset_x)/2))/16;
-}
-
 function find_next_tile_to_move_object_to_x_y(_character,_grid){
 	var _distance_x = abs(_character.v_tile_x -_character.v_target_x);
 	var _distance_y = abs(_character.v_tile_y -_character.v_target_y);
@@ -124,9 +78,3 @@ function move_object_to_tile_step(_character,_direction){
 			break;	
 		}
 }
-
-function calculate_index_of_tile(_x,_y,_size_x){
-	return _y * _size_x + _x; 
-}
-
-
