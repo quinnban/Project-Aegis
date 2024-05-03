@@ -10,8 +10,6 @@ function place_grid_objects(_size_x,_size_y,_tile_height,_tile_width){
 		var _layer = (_size_x*_size_y) - (i*_size_x);
 		for(j =0; j < _size_x; j++ ;) {
 			_layer -= 1 ;
-			var _x = calculate_pixel_x(j,i,_tile_height,_tile_width);
-			var _y = calculate_pixel_y(j,i,_tile_height,_tile_width);
 			var _obj_id = instance_create_depth(0,0,_layer,obj_grid_square,{
 				v_tile_x:j,
 				v_tile_y:i,

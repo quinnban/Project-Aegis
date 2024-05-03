@@ -57,9 +57,9 @@ function calculate_tile_x(_pixel_x,_pixel_y,_offset_y,_offset_x){
 /// @param {real}  _offset_y	starting y offset in pixels
 /// @param {real}  _offset_x	starting x offset in pixels
 /// @description				Calculate the y on grid  given and [x,y] in pixels
-function calculate_tile_y(_pixel_x,_pixel_y,_v_offset_y,_v_offset_x){
+function calculate_tile_y(_pixel_x,_pixel_y,_offset_y,_offset_x){
 	//(deltaY - deltaX/2)/16 I dont remember if 16 is 0.5h or 0.5w
-	return ((_pixel_y - _v_offset_y) - ((_pixel_x - _v_offset_x)/2))/16;
+	return ((_pixel_y - _offset_y) - ((_pixel_x - _offset_x)/2))/16;
 }
 
 /// @function				calculate_index_of_tile(_x,_y,_size_x)
