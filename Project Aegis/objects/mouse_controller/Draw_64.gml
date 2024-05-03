@@ -28,10 +28,7 @@ if(_num > 0) {
 	if(_check1){
 		draw_text(200,45,string(" FLx: {0}",_tile_x));
 		draw_text(200,30,string(" FLy: {0}",_tile_y));
-		var _index = calculate_index_of_tile(_tile_x,_tile_y,_instance.v_size_x);
-		_instance.v_list_obj_tiles[|_index].sprite_index = s_grid_box_selected;
 	}
-
 }
 
 ds_list_destroy(_collision_ds_list);

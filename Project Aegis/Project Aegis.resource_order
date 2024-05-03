@@ -20,6 +20,7 @@
     {"name":"mouse_controller","order":3,"path":"objects/mouse_controller/mouse_controller.yy",},
     {"name":"obj_character","order":2,"path":"objects/obj_character/obj_character.yy",},
     {"name":"obj_grid_square","order":1,"path":"objects/obj_grid_square/obj_grid_square.yy",},
+    {"name":"scr_tile_selector","order":2,"path":"scripts/scr_tile_selector/scr_tile_selector.yy",},
     {"name":"test_helper","order":1,"path":"scripts/test_helper/test_helper.yy",},
     {"name":"s_char_base","order":3,"path":"sprites/s_char_base/s_char_base.yy",},
     {"name":"s_char_walk_down","order":6,"path":"sprites/s_char_walk_down/s_char_walk_down.yy",},

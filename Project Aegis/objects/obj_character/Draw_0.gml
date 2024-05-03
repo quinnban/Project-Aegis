@@ -5,8 +5,9 @@ var _grid = obj_controller_grid;
 
 if(v_state == PLAYER_STATE.CHOOSING_MOVE){
 	//mouse tile
-	var _tile_x = calculate_tile_x_floor(mouse_x,mouse_y,_grid.v_offset_y,_grid.v_offset_x);
-	var _tile_y = calculate_tile_y_floor(mouse_x,mouse_y,_grid.v_offset_y,_grid.v_offset_x);
+	var _tile_cords = get_x_y_mouse_selected(_grid);
+	var _tile_x = _tile_cords[0];
+	var _tile_y = _tile_cords[1];
 	var _distance = abs(_tile_x - v_tile_x) + abs(_tile_y - v_tile_y);
 	var _check1 = _tile_x == v_tile_x && _tile_y == v_tile_y;
 	var _check2 = _tile_x >= 0 && _tile_y >= 0 && _tile_y < obj_controller_grid.v_size_y && _tile_x < obj_controller_grid.v_size_x;
@@ -14,7 +15,7 @@ if(v_state == PLAYER_STATE.CHOOSING_MOVE){
 	
 	if(!_check1 && _check2 && _check3){
 		if(mouse_check_button_released(mb_any)){
-			var _index = _tile_y * obj_controller_grid.v_size_x + _tile_x;  
+			var _index =calculate_index_of_tile(_tile_x,_tile_y,_grid.v_size_x);
 			var _obj = obj_controller_grid.v_list_obj_tiles[|_index];
 			v_target_x = _obj.v_tile_x;
 			v_target_y = _obj.v_tile_y;
