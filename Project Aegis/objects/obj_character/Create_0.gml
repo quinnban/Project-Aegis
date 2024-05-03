@@ -7,8 +7,10 @@ enum PLAYER_STATE {
 v_state = PLAYER_STATE.IDLE;
 image_speed = 0.25;
 
-var _x = calculate_pixel_x(v_tile_x,v_tile_y,sprite_height,sprite_width);
-var _y = calculate_pixel_y(v_tile_x,v_tile_y,sprite_height,sprite_width);
+var _instance = obj_controller_grid;
+
+var _x = calculate_pixel_x(v_tile_x,v_tile_y,sprite_width,_instance.v_offset_x);
+var _y = calculate_pixel_y(v_tile_x,v_tile_y,sprite_height,_instance.v_offset_y);
 
 _y-= v_tile_z * 8 ;
 x=_x;

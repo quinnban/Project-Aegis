@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_grid",
+  "%Name":"scr_grid_utils",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_grid",
+  "name":"scr_grid_utils",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

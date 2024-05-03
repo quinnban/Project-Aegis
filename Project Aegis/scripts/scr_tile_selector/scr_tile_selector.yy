@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_tile_selector",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_tile_selector",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
