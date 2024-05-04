@@ -1,4 +1,4 @@
-/// @description returns an array [x,y] of which tile the mouse is one
+/// @description returns an array [x,y] of which tile the mouse is on
 // You can write your code in this editor
 
 function get_x_y_mouse_selected(_grid){
@@ -20,10 +20,9 @@ function get_x_y_mouse_selected(_grid){
 		ds_list_destroy(_collision_ds_list);
 		if(_check1){
 			return [_tile_x,_tile_y];
-		} else {
-			return[-1,-1];
 		}
 	}
+	return[-1,-1];
 }
 
 function ds_list_to_array(_list) {
