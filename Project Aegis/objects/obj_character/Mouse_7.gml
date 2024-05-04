@@ -3,15 +3,9 @@
 if(v_state = PLAYER_STATE.IDLE){
 	v_state = PLAYER_STATE.CHOOSING_MOVE;
 	var _instance = obj_controller_grid;
-	global.cur_char = self;
-	with(_instance){
-	 event_perform(ev_other, ev_user0)
-	}
+	hightlight_tiles_in__movement_range(_instance);
 } else {
 	v_state = PLAYER_STATE.IDLE;
 	var _instance = obj_controller_grid;
-	with(_instance){
-	 event_perform(ev_other, ev_user1)
-	}
-	global.cur_char = undefined;
+	unhightlight_tiles_in__movement_range(_instance);
 }

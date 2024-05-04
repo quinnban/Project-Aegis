@@ -10,20 +10,17 @@ if(v_state == PLAYER_STATE.CHOOSING_MOVE){
 	var _tile_y = _tile_cords[1];
 	var _distance = abs(_tile_x - v_tile_x) + abs(_tile_y - v_tile_y);
 	var _check1 = _tile_x == v_tile_x && _tile_y == v_tile_y;
-	var _check2 = _tile_x >= 0 && _tile_y >= 0 && _tile_y < obj_controller_grid.v_size_y && _tile_x < obj_controller_grid.v_size_x;
+	var _check2 = _tile_x >= 0 && _tile_y >= 0 && _tile_y < _grid.v_size_y && _tile_x < _grid.v_size_x;
 	var _check3 = _distance <= v_movement_speed;
 	
 	if(!_check1 && _check2 && _check3){
 		if(mouse_check_button_released(mb_any)){
 			var _index =calculate_index_of_tile(_tile_x,_tile_y,_grid.v_size_x);
-			var _obj = obj_controller_grid.v_list_obj_tiles[|_index];
+			var _obj = _grid.v_list_obj_tiles[|_index];
 			v_target_x = _obj.v_tile_x;
 			v_target_y = _obj.v_tile_y;
 			v_target_z = _obj.v_tile_z;
-			with(obj_controller_grid){
-				event_perform(ev_other, ev_user1);
-			}
-			global.cur_char = undefined;
+			unhightlight_tiles_in__movement_range(_grid);
 			v_state = PLAYER_STATE.IDLE;
 		}
 	}	
@@ -47,12 +44,25 @@ if(v_target_x > -1 && v_target_y > -1){
 	}
 	
 	if(v_state == PLAYER_STATE.MOVING){
-		var _direction = find_direction_for_object_next_tile_x_y(self,_grid);
-		if(_direction = DIRECTION.NONE){
+		var _pixel_x = calculate_pixel_x(v_next_x,v_next_y,32,v_offset_x);
+		//the 8 have something to do with the sprite orgin
+		var _pixel_y = calculate_pixel_y(v_next_x,v_next_y,v_next_z,32,v_offset_y)-8;
+		var _dir = point_direction(x,y,_pixel_x,_pixel_y);
+		if(point_distance(x,y,_pixel_x,_pixel_y) > 1){
+			x+=lengthdir_x(2,_dir)
+			y+=lengthdir_y(2,_dir)
+		} else {
 			v_tile_x = v_next_x;
 			v_tile_y = v_next_y;
 			v_state = PLAYER_STATE.IDLE;
 		}
-		move_object_to_tile_step(self,_direction);
+		
+		//var _direction = find_direction_for_object_next_tile_x_y(self,_grid);
+		//if(_direction = DIRECTION.NONE){
+		//	v_tile_x = v_next_x;
+		//	v_tile_y = v_next_y;
+		//	v_state = PLAYER_STATE.IDLE;
+		//}
+		//move_object_to_tile_step(self,_direction);
 	}
 }

@@ -53,28 +53,3 @@ function find_direction_for_object_next_tile_x_y(_character,_grid){
 	}
 }
 
-function move_object_to_tile_step(_character,_direction){
-		var _x_pixel_distance = 32 * _character.v_speed;
-		var _y_pixel_distance = 16 * _character.v_speed;
-		
-		//_y_pixel_distance+= abs(_character.v_tile_z - _character.v_target_z) * 8 * _character.v_speed
-		
-		switch(_direction){
-			case DIRECTION.UP:
-			_character.x+=_x_pixel_distance;
-			_character.y-=_y_pixel_distance;
-			break;
-			case DIRECTION.DOWN:
-			_character.x-=_x_pixel_distance;
-			_character.y+=_y_pixel_distance;
-			break;
-			case DIRECTION.LEFT:
-			_character.x-=_x_pixel_distance;
-			_character.y-=_y_pixel_distance;
-			break;
-			case DIRECTION.RIGHT:
-			_character.x+= _x_pixel_distance;	
-			_character.y+=_y_pixel_distance;
-			break;	
-		}
-}
