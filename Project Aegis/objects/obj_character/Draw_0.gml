@@ -49,20 +49,14 @@ if(v_target_x > -1 && v_target_y > -1){
 		var _pixel_y = calculate_pixel_y(v_next_x,v_next_y,v_next_z,32,v_offset_y)-8;
 		var _dir = point_direction(x,y,_pixel_x,_pixel_y);
 		if(point_distance(x,y,_pixel_x,_pixel_y) > 1){
+			change_sprite_imagine_moving(_dir);
 			x+=lengthdir_x(2,_dir)
 			y+=lengthdir_y(2,_dir)
 		} else {
 			v_tile_x = v_next_x;
 			v_tile_y = v_next_y;
 			v_state = PLAYER_STATE.IDLE;
+			sprite_index = s_char_base;
 		}
-		
-		//var _direction = find_direction_for_object_next_tile_x_y(self,_grid);
-		//if(_direction = DIRECTION.NONE){
-		//	v_tile_x = v_next_x;
-		//	v_tile_y = v_next_y;
-		//	v_state = PLAYER_STATE.IDLE;
-		//}
-		//move_object_to_tile_step(self,_direction);
 	}
 }

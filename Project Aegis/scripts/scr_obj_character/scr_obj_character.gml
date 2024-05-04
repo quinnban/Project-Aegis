@@ -84,5 +84,15 @@ function unhightlight_tiles_in__movement_range(_grid){
 }
 	
 function change_sprite_imagine_moving(_dir){
-	if(_dir)
+	switch(round(_dir)/90){
+		case 1:
+		sprite_index = s_char_walk_horizonal;
+		break;
+		case 2:
+		sprite_index = s_char_walk_up;
+		case 3:
+		sprite_index = s_char_walk_horizonal;
+		case 4:
+		sprite_index = s_char_walk_down;
+	}
 }
