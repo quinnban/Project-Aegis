@@ -12,4 +12,21 @@ var _char = instance_create_depth(0,0,-100,obj_character,{
 	v_offset_y:v_offset_y
 });
 
+var _rock= instance_create_depth(0,0,-100,obj_grid_object,{
+	v_tile_x:2,
+	v_tile_y:2,
+	v_tile_z:1,
+	v_offset_x:v_offset_x,
+	v_offset_y:v_offset_y
+});
+
+var _rock= instance_create_depth(0,0,-100,obj_grid_object,{
+	v_tile_x:8,
+	v_tile_y:2,
+	v_tile_z:0,
+	v_offset_x:v_offset_x,
+	v_offset_y:v_offset_y
+});
+
+
 enum DIRECTION {UP,DOWN,LEFT,RIGHT,NONE}

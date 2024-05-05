@@ -58,25 +58,25 @@ function unhightlight_tiles_in__movement_range(_grid){
 			if(_y_up < _grid.v_size_y && _x_right < _grid.v_size_x ){
 				var _index1 = calculate_index_of_tile(_x_right,_y_up,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box;
+				_tile1.sprite_index = _tile1.v_tile_z >=0 ?  spr_grid_ground : spr_grid_water;
 			}
 		
 			if(_y_up < _grid.v_size_y && _x_left >= 0 ){
 				var _index1 = calculate_index_of_tile(_x_left,_y_up,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box;
+				_tile1.sprite_index = _tile1.v_tile_z >=0 ?  spr_grid_ground : spr_grid_water;
 			}
 		
 			if(_y_down >= 0 && _x_right < _grid.v_size_x ){
 				var _index1 = calculate_index_of_tile(_x_right,_y_down,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box;
+				_tile1.sprite_index = _tile1.v_tile_z >=0 ?  spr_grid_ground : spr_grid_water;
 			}
 		
 			if(_y_down >=0  && _x_left >= 0 ){
 				var _index1 = calculate_index_of_tile(_x_left,_y_down,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box;
+				_tile1.sprite_index = _tile1.v_tile_z >=0 ?  spr_grid_ground : spr_grid_water;
 			}
 		
 		}	
