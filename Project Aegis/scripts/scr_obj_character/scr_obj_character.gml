@@ -87,22 +87,23 @@ function unhightlight_tiles_in__movement_range(_grid){
 /// @param {Real}				_deg	direction in degs
 /// @description				changes the charcter sprite base of direction they are going
 function change_sprite_imagine_moving(_deg){
-	var _dir = round(_deg/90)
+	var _dir = round(((_deg-45)%360)/90);
+	draw_text(100,50,string(" Deg: {0}",_dir));
 	switch(_dir){
-		case 1:
-		image_xscale =-1
+		case 0:
 		sprite_index = s_char_walk_horizonal;
 		break;
-		case 2:
+		case 1:
 		sprite_index = s_char_walk_up;
 		break;
-		case 3:
+		case 2:
+		image_xscale =-1;
 		sprite_index = s_char_walk_horizonal;
 		break;
-		case 4:
+		case 3:
 		sprite_index = s_char_walk_down;
 		break;
 		default:
-		sprite_index = s_char_walk_down;
+		sprite_index = s_char_base;
 	}
 }

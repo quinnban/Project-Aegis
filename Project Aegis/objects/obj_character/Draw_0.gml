@@ -53,6 +53,7 @@ if(v_target_x > -1 && v_target_y > -1){
 			x+=lengthdir_x(2,_dir)
 			y+=lengthdir_y(2,_dir)
 		} else {
+			image_xscale =1;
 			v_tile_x = v_next_x;
 			v_tile_y = v_next_y;
 			v_state = PLAYER_STATE.IDLE;
