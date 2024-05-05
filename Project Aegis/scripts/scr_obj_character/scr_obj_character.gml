@@ -83,16 +83,26 @@ function unhightlight_tiles_in__movement_range(_grid){
 	}
 }
 	
-function change_sprite_imagine_moving(_dir){
-	switch(round(_dir)/90){
+/// @function					change_sprite_imagine_moving(_dir);
+/// @param {Real}				_deg	direction in degs
+/// @description				changes the charcter sprite base of direction they are going
+function change_sprite_imagine_moving(_deg){
+	var _dir = round(_deg/90)
+	switch(_dir){
 		case 1:
+		image_xscale =-1
 		sprite_index = s_char_walk_horizonal;
 		break;
 		case 2:
 		sprite_index = s_char_walk_up;
+		break;
 		case 3:
 		sprite_index = s_char_walk_horizonal;
+		break;
 		case 4:
+		sprite_index = s_char_walk_down;
+		break;
+		default:
 		sprite_index = s_char_walk_down;
 	}
 }

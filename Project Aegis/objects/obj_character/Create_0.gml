@@ -13,4 +13,4 @@ var _x = calculate_pixel_x(v_tile_x,v_tile_y,sprite_width,_instance.v_offset_x);
 var _y = calculate_pixel_y(v_tile_x,v_tile_y,v_tile_z,sprite_height,_instance.v_offset_y);
 
 x=_x;
-y=_y;
+y=_y-8;

@@ -1,6 +1,7 @@
-/// @description returns an array [x,y] of which tile the mouse is on
-// You can write your code in this editor
-
+/// @function					get_x_y_mouse_selected(_grid);
+/// @param {Asset.GMObject}		_grid obj_grid_controller
+/// @description				return [x,y] of grid of where the mouse is. return [-1,-1] if not on tile
+/// @return	{Array}
 function get_x_y_mouse_selected(_grid){
 	var _collision_ds_list = ds_list_create();
 	var _num = instance_position_list(mouse_x, mouse_y,obj_grid_square, _collision_ds_list, true);
@@ -25,6 +26,11 @@ function get_x_y_mouse_selected(_grid){
 	return[-1,-1];
 }
 
+
+/// @function					ds_list_to_array(_list);
+/// @param {Id.DsList}			_list ds list
+/// @description				transforms a ds list into an array
+/// @return	{Array}
 function ds_list_to_array(_list) {
 	// Error Checking
 	if !ds_exists(_list, ds_type_list) {
