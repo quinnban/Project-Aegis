@@ -7,7 +7,6 @@
   "inheritLayers":false,
   "instanceCreationOrder":[
     {"name":"inst_44E961C3","path":"rooms/Room1/Room1.yy",},
-    {"name":"inst_73F67226","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd":false,
   "layers":[
