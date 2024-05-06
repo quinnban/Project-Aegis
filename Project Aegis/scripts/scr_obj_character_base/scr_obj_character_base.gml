@@ -16,25 +16,25 @@ function hightlight_tiles_in__movement_range(_grid){
 			if(_y_up < _grid.v_size_y && _x_right < _grid.v_size_x ){
 				var _index1 = calculate_index_of_tile(_x_right,_y_up,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box_hightlight;
+				_tile1.sprite_index = spr_grid_box_hightlight;
 			}
 		
 			if(_y_up < _grid.v_size_y && _x_left >= 0 ){
 				var _index1 = calculate_index_of_tile(_x_left,_y_up,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box_hightlight;
+				_tile1.sprite_index = spr_grid_box_hightlight;
 			}
 		
 			if(_y_down >= 0 && _x_right < _grid.v_size_x ){
 				var _index1 = calculate_index_of_tile(_x_right,_y_down,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box_hightlight;
+				_tile1.sprite_index = spr_grid_box_hightlight;
 			}
 		
 			if(_y_down >=0  && _x_left >= 0 ){
 				var _index1 = calculate_index_of_tile(_x_left,_y_down,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box_hightlight;
+				_tile1.sprite_index = spr_grid_box_hightlight;
 			}
 		}	
 	}
@@ -58,25 +58,25 @@ function unhightlight_tiles_in__movement_range(_grid){
 			if(_y_up < _grid.v_size_y && _x_right < _grid.v_size_x ){
 				var _index1 = calculate_index_of_tile(_x_right,_y_up,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box;
+				_tile1.sprite_index = spr_grid_box;
 			}
 		
 			if(_y_up < _grid.v_size_y && _x_left >= 0 ){
 				var _index1 = calculate_index_of_tile(_x_left,_y_up,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box;
+				_tile1.sprite_index = spr_grid_box;
 			}
 		
 			if(_y_down >= 0 && _x_right < _grid.v_size_x ){
 				var _index1 = calculate_index_of_tile(_x_right,_y_down,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box;
+				_tile1.sprite_index = spr_grid_box;
 			}
 		
 			if(_y_down >=0  && _x_left >= 0 ){
 				var _index1 = calculate_index_of_tile(_x_left,_y_down,_grid.v_size_x);
 				var _tile1 = _grid.v_list_obj_tiles[|_index1];
-				_tile1.sprite_index = s_grid_box;
+				_tile1.sprite_index = spr_grid_box;
 			}
 		
 		}	
@@ -91,19 +91,45 @@ function change_sprite_imagine_moving(_deg){
 	draw_text(100,50,string(" Deg: {0}",_dir));
 	switch(_dir){
 		case 0:
-		sprite_index = s_char_walk_horizonal;
+		sprite_index = spr_char_walk_horizonal;
 		break;
 		case 1:
-		sprite_index = s_char_walk_up;
+		sprite_index = spr_char_walk_up;
 		break;
 		case 2:
 		image_xscale =-1;
-		sprite_index = s_char_walk_horizonal;
+		sprite_index = spr_char_walk_horizonal;
 		break;
 		case 3:
-		sprite_index = s_char_walk_down;
+		sprite_index = spr_char_walk_down;
 		break;
 		default:
-		sprite_index = s_char_base;
+		sprite_index = spr_char_base;
+	}
+}
+	
+	
+/// @function					find_next_tile_to_move_object_to_x_y(_character,_grid){
+/// @param {Asset.GMObject}		_grid obj_grid_controller
+/// @description				returns obj_grid_square or undefined must be run in character context
+/// @return	{Asset.GMObject}
+function find_next_tile_to_move_object_to_x_y(_grid){
+	var _distance_x = abs(v_tile_x -v_target_x);
+	var _distance_y = abs(v_tile_y -v_target_y);
+	
+	if((_distance_y >= _distance_x)  && _distance_y !=0) {
+		if(v_tile_y - v_target_y > 0){
+			return _grid.v_list_obj_tiles[|((v_tile_y -1) * _grid.v_size_x + v_tile_x)];
+		} else {
+			return _grid.v_list_obj_tiles[|((v_tile_y +1) *_grid. v_size_x + v_tile_x)];
+		}
+	} else if (_distance_x > _distance_y) {
+		if(v_tile_x - v_target_x > 0){
+			return _grid.v_list_obj_tiles[|((v_tile_y) * _grid.v_size_x + (v_tile_x-1))];
+		} else {
+			return _grid.v_list_obj_tiles[|((v_tile_y) * _grid.v_size_x + (v_tile_x+1))];
+		}
+	} else {
+		return undefined;
 	}
 }

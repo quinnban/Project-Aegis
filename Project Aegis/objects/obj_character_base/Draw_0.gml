@@ -29,7 +29,7 @@ if(v_state == PLAYER_STATE.CHOOSING_MOVE){
 
 if(v_target_x > -1 && v_target_y > -1){
 	if(v_state == PLAYER_STATE.IDLE){
-		var _next_tile = find_next_tile_to_move_object_to_x_y(self,_grid);
+		var _next_tile = find_next_tile_to_move_object_to_x_y(_grid);
 		if(_next_tile != undefined) {
 			v_next_x =  _next_tile.v_tile_x;
 			v_next_y = _next_tile.v_tile_y;
@@ -57,7 +57,7 @@ if(v_target_x > -1 && v_target_y > -1){
 			v_tile_x = v_next_x;
 			v_tile_y = v_next_y;
 			v_state = PLAYER_STATE.IDLE;
-			sprite_index = s_char_base;
+			sprite_index = spr_char_base;
 		}
 	}
 }

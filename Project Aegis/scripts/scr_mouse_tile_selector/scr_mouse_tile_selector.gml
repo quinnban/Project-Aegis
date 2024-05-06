@@ -1,7 +1,7 @@
 /// @function					get_x_y_mouse_selected(_grid);
 /// @param {Asset.GMObject}		_grid obj_grid_controller
 /// @description				return [x,y] of grid of where the mouse is. return [-1,-1] if not on tile
-/// @return	{Array}
+/// @return	{Array<Real>}
 function get_x_y_mouse_selected(_grid){
 	var _collision_ds_list = ds_list_create();
 	var _num = instance_position_list(mouse_x, mouse_y,obj_grid_square, _collision_ds_list, true);
@@ -36,9 +36,9 @@ function ds_list_to_array(_list) {
 	if !ds_exists(_list, ds_type_list) {
 		__ds_struct_array_conversion_throw("Not a ds_list");   
 	}
-	var _listSize = ds_list_size(_list);
-	var _array = array_create(_listSize-1,0);
-	var _len = _listSize;
+	var _list_size = ds_list_size(_list);
+	var _array = array_create(_list_size-1,0);
+	var _len = _list_size;
 	var _i = 0;
 	repeat(_len) {
 		var _index = _list[| _i];

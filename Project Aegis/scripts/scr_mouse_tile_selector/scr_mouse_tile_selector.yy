@@ -1,9 +1,9 @@
 {
   "$GMScript":"",
-  "%Name":"scr_object_movement",
+  "%Name":"scr_mouse_tile_selector",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_object_movement",
+  "name":"scr_mouse_tile_selector",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

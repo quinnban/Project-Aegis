@@ -38,8 +38,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"s_grid_box",
-    "path":"sprites/s_grid_box/s_grid_box.yy",
+    "name":"spr_grid_box",
+    "path":"sprites/spr_grid_box/spr_grid_box.yy",
   },
   "spriteMaskId":null,
   "visible":true,

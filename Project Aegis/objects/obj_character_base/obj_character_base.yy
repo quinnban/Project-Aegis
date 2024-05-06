@@ -1,6 +1,6 @@
 {
   "$GMObject":"",
-  "%Name":"obj_character",
+  "%Name":"obj_character_base",
   "eventList":[
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":10,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
@@ -9,7 +9,7 @@
     {"$GMEvent":"","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":6,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_character",
+  "name":"obj_character_base",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -49,8 +49,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"s_char_base",
-    "path":"sprites/s_char_base/s_char_base.yy",
+    "name":"spr_char_base",
+    "path":"sprites/spr_char_base/spr_char_base.yy",
   },
   "spriteMaskId":null,
   "visible":true,
