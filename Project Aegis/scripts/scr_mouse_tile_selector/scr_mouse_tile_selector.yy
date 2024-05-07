@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_mouse_tile_selector",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"utilities",
+    "path":"folders/Scripts/utilities.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

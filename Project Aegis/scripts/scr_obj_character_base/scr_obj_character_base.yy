@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_obj_character_base",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"obj_character_base",
+    "path":"folders/Scripts/obj_character_base.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

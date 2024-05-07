@@ -1,10 +1,14 @@
-v_list_obj_tiles = ds_list_create();
+global.offset_x = v_offset_x;
+global.offset_y = v_offset_y;
+global.size_y = v_size_y;
+global.size_x = v_size_x;
 var _sprite = object_get_sprite(obj_grid_square);
-place_grid_objects(v_size_x,v_size_y,sprite_get_height(_sprite),sprite_get_width(_sprite));
+global.tile_width = sprite_get_height(_sprite);
+global.tile_height = sprite_get_height(_sprite);
+
+v_tile_array = [];
+place_grid_objects();
+
 var _char = instance_create_depth(0,0,-100,obj_character_base,{
-	v_tile_x:0,
-	v_tile_y:0,
-	v_tile_z:1,
-	v_offset_x:v_offset_x,
-	v_offset_y:v_offset_y
+	v_current_cord : new Coordinate(0,0,1) 
 });

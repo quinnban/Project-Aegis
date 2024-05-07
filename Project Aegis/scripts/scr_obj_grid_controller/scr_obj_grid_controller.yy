@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_obj_grid_controller",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"obj_grid_controller",
+    "path":"folders/Scripts/obj_grid_controller.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
