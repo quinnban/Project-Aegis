@@ -88,7 +88,6 @@ function unhightlight_tiles_in_movement_range(_grid){
 /// @description				changes the charcter sprite base of direction they are going
 function change_sprite_imagine_moving(_deg){
 	var _dir = round(((_deg-45)%360)/90);
-	draw_text(100,50,string(" Deg: {0}",_dir));
 	switch(_dir){
 		case 0:
 		sprite_index = spr_char_walk_horizonal;
@@ -119,15 +118,15 @@ function find_next_tile_to_move_object_to_x_y(_grid){
 	
 	if((_distance_y >= _distance_x)  && _distance_y !=0) {
 		if(v_current_cord.y - v_target_cord.y > 0){
-			return _grid.v_tile_array[calculate_index_of_tile(v_current_cord.y - 1,v_current_cord.x)];
+			return _grid.v_tile_array[calculate_index_of_tile(v_current_cord.x,v_current_cord.y - 1)];
 		} else {
-			return _grid.v_tile_array[calculate_index_of_tile(v_current_cord.y + 1,v_current_cord.x)];
+			return _grid.v_tile_array[calculate_index_of_tile(v_current_cord.x,v_current_cord.y + 1)];
 		}
 	} else if (_distance_x > _distance_y) {
 		if(v_current_cord.x - v_target_cord.x > 0){
-			return _grid.v_tile_array[calculate_index_of_tile(v_current_cord.y,v_current_cord.x - 1)];
+			return _grid.v_tile_array[calculate_index_of_tile(v_current_cord.x - 1,v_current_cord.y)];
 		} else {
-			return _grid.v_tile_array[calculate_index_of_tile(v_current_cord.y,v_current_cord.x + 1)];
+			return _grid.v_tile_array[calculate_index_of_tile(v_current_cord.x + 1,v_current_cord.y)];
 		}
 	} else {
 		return undefined;
