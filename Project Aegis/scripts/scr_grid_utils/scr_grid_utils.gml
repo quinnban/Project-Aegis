@@ -12,12 +12,13 @@ function calculate_pixel_x(_tile_x,_tile_y,_tile_width,_offset_x){
 /// @function					calculate_pixel_y(_tile_x,_tile_y,_tile_height,_offset_y)
 /// @param {real}  _tile_x		x on grid
 /// @param {real}  _tile_y		y on grid
+/// @param {real}  _tile_z		z on grid
 /// @param {real}  _tile_height	Sprite height
 /// @param {real}  _offset_y	starting y offset in pixels
 /// @description				Calculate the y in pixels given a grid [x,y] and offset
-function calculate_pixel_y(_tile_x,_tile_y,_tile_height,_offset_y){
-	// y = x*0.25h + y*0.25h
-	return  ((_tile_x * (_tile_height * 0.25)) + (_tile_y * (_tile_height * 0.25))) + _offset_y ;
+function calculate_pixel_y(_tile_x,_tile_y,_tile_z,_tile_height,_offset_y){
+	// y = x*0.25h + y*0.25h - z*0.25h
+	return  ((_tile_x * (_tile_height * 0.25)) + (_tile_y * (_tile_height * 0.25))) - (_tile_z * (_tile_height * 0.25)) + _offset_y ;
 }
 
 /// @function					calculate_tile_x_floor(_pixel_x,_pixel_y,_offset_y,_offset_x)
