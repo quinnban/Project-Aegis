@@ -7,10 +7,8 @@ enum PLAYER_STATE {
 v_state = PLAYER_STATE.IDLE;
 image_speed = 0.25;
 
-var _instance = obj_controller_grid;
+v_target_cord = new Coordinate(-1,-1,-1); 
+v_next_cord = new Coordinate(-1,-1,-1) ;
 
-var _x = calculate_pixel_x(v_tile_x,v_tile_y,sprite_width,_instance.v_offset_x);
-var _y = calculate_pixel_y(v_tile_x,v_tile_y,v_tile_z,sprite_height,_instance.v_offset_y);
-
-x=_x;
-y=_y-8;
+x=v_current_cord.PixelX();
+y=v_current_cord.PixelY()-8;

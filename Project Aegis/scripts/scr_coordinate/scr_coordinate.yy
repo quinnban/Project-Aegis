@@ -1,12 +1,12 @@
 {
   "$GMScript":"",
-  "%Name":"scr_grid_utils",
+  "%Name":"scr_coordinate",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_grid_utils",
+  "name":"scr_coordinate",
   "parent":{
-    "name":"utilities",
-    "path":"folders/Scripts/utilities.yy",
+    "name":"structs",
+    "path":"folders/Scripts/utilities/structs.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
