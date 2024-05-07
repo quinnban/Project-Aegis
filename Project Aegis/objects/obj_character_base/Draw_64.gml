@@ -8,7 +8,7 @@
 
 //var _instance = obj_controller_grid;
 
-//var _x_y = get_x_y_mouse_selected(_instance);
+//var _x_y = get_mouse_selected_tile(_instance);
 
 //if(_x_y[0] >= 0 and _x_y[1] >=0){
 //	draw_text(200,45,string(" FLx: {0}",_x_y[0]));

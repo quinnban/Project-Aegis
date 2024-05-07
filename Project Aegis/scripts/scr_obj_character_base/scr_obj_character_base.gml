@@ -2,7 +2,7 @@
 /// @param {Asset.GMObject}		_grid	obj_grid_controller
 /// @description				can only be run in obj_character context, hightlights tiles in v_movement_speed range
 function hightlight_tiles_in_movement_range(_grid){
-	for(var _i = 0; _i <= v_movement_speed; _i++;) {
+	for(var _i = 0; _i <= v_movement_range; _i++;) {
 	//_i = y counter
 		for(var _j = 0; _j <= _i; _j++; ){
 			// _j = x
@@ -44,7 +44,7 @@ function hightlight_tiles_in_movement_range(_grid){
 /// @param {Asset.GMObject}		_grid	obj_grid_controller
 /// @description				can only be run in obj_character context, unhightlights tiles in v_movement_speed range
 function unhightlight_tiles_in_movement_range(_grid){
-	for(var _i = 0; _i <= v_movement_speed; _i++;) {
+	for(var _i = 0; _i <= v_movement_range; _i++;) {
 		//_i = y counter
 		for(var _j = 0; _j <= _i; _j++; ){
 			// _j = x
@@ -86,7 +86,7 @@ function unhightlight_tiles_in_movement_range(_grid){
 /// @function					change_sprite_imagine_moving(_dir);
 /// @param {Real}				_deg	direction in degs
 /// @description				changes the charcter sprite base of direction they are going
-function change_sprite_imagine_moving(_deg){
+function change_sprite_image_walking(_deg){
 	var _dir = round(((_deg-45)%360)/90);
 	switch(_dir){
 		case 0:
@@ -112,7 +112,7 @@ function change_sprite_imagine_moving(_deg){
 /// @param {Asset.GMObject}		_grid obj_grid_controller
 /// @description				returns obj_grid_square or undefined must be run in character context
 /// @return	{Asset.GMObject}
-function find_next_tile_to_move_object_to_x_y(_grid){
+function find_next_tile_on_path(_grid){
 	var _distance_x = abs(v_current_cord.x  - v_target_cord.x);
 	var _distance_y = abs(v_current_cord.y - v_target_cord.y);
 	

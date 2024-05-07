@@ -2,7 +2,7 @@
 /// @param {Asset.GMObject}		_grid obj_grid_controller
 /// @description				return [x,y] of grid of where the mouse is. return [-1,-1] if not on tile
 /// @return	{Array<Real>}
-function get_x_y_mouse_selected(_grid){
+function get_mouse_selected_tile(_grid){
 	var _collision_ds_list = ds_list_create();
 	var _num = instance_position_list(mouse_x, mouse_y,obj_grid_square, _collision_ds_list, true);
 	if(_num > 0) {
