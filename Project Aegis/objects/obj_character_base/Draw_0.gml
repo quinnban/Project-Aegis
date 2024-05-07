@@ -38,9 +38,9 @@ if(v_target_cord.x > -1 && v_target_cord.y > -1){
 	}
 	
 	if(v_state == PLAYER_STATE.MOVING){
-		var _pixel_x = v_target_cord.PixelX();
+		var _pixel_x = v_next_cord.PixelX();
 		//the 8 have something to do with the sprite orgin
-		var _pixel_y = v_target_cord.PixelY() - 8;
+		var _pixel_y = v_next_cord.PixelY() - 8;
 		var _dir = point_direction(x,y,_pixel_x,_pixel_y);
 		if(point_distance(x,y,_pixel_x,_pixel_y) > 1){
 			change_sprite_imagine_moving(_dir);

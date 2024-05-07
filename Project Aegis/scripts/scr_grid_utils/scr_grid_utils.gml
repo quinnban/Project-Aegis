@@ -4,7 +4,7 @@
 /// @description				Calculate the x in pixels given a grid [x,y] 
 function calculate_pixel_x(_tile_x,_tile_y){
 	// x= x*0.5w + y*-0.5w
-	return ((_tile_x * (global.tile_width*0.5)) + (_tile_y * - (global.tile_width * 0.5))) + global.offset_x;
+	return ((_tile_x * (global.tile_width*0.5)) + (_tile_y *  (- global.tile_width * 0.5))) + global.offset_x;
 }
 
 /// @function					calculate_pixel_y(_tile_x,_tile_y)
